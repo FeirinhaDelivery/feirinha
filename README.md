@@ -50,7 +50,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 No terminal, clone o projeto: 
 
 ```
-git clone https://github.com/lehenriques/Projeto-violencia-domestica.git
+git clone https://github.com/FeirinhaDelivery/feirinha.git
 ```
 
 Depois realise a instalação das dependências do NPM
@@ -61,7 +61,7 @@ npm install
 
 ## Resolvendo Problemas :exclamation:
 
-Em [issues](https://github.com/lehenriques/Projeto-violencia-domestica/issues) foram abertos alguns problemas gerados durante o desenvolvimento desse projeto e como foram resolvidos. 
+Em [issues](https://github.com/FeirinhaDelivery/feirinha/issues) foram abertos alguns problemas gerados durante o desenvolvimento desse projeto e como foram resolvidos. 
 
 ## Tarefas em aberto
 
