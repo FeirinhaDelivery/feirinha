@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import HeaderMenu from "../Components/HeaderMenu";
+import Sidebar from "../Components/Sidebar";
 import {Container, Row, Col, Card, CardColumns, Badge} from "react-bootstrap";
 import api from "../Services/api";
 
@@ -32,7 +33,7 @@ function Landing() {
 
             <Container fluid className="menu-top pt-3">
                 <Row>
-                    <Col xs={2}>1 of 3</Col>
+                    <Col xs={2}><Sidebar /></Col>
                     <Col xs={10}>
                         <CardColumns>
 
