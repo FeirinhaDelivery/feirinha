@@ -32,39 +32,7 @@ function Landing() {
 
             <Container fluid className="menu-top">
                 <Row>
-                    <Col xs={2}>1 of 3</Col>
-                    <Col xs={10}>
-                        <CardColumns>
 
-                            {products.map(product => {
-                                return (
-                                    <Card style={{width: '18rem'}} key={product.id}>
-                                        <Card.Img variant="top" src={product.thumbnailUrl}/>
-                                        <Card.Body>
-                                            <Card.Title className="product_title text-center">{product.name}</Card.Title>
-                                            <Card.Text className={'product'}>
-                                                {product.priceOld ?
-                                                    <div className={'price_old'}>
-                                                        {product.priceOld} <small className={'mr-3'}>Kg</small>
-                                                    </div>
-                                                    :
-                                                    ''
-                                                }
-                                                <div className={'price'}>
-                                                {product.defaultDisplayedPriceFormatted} <small>Kg</small>
-                                                </div>
-                                            </Card.Text>
-                                            <div className="text-center">
-                                                <Link to="/" className="btn btn-outline-primary">
-                                                    Adicionar
-                                                </Link>
-                                            </div>
-                                        </Card.Body>
-                                    </Card>
-                                )
-                            })}
-                        </CardColumns>
-                    </Col>
                 </Row>
             </Container>
         </div>
