@@ -46,3 +46,6 @@ body {
     background-color: rgb(120, 142, 48);
     border-color: rgb(120, 142, 48);
 }
+.shadow-sm {
+    box-shadow: 0 0.125rem .50rem rgba(0,0,0,.2)!important;
+}

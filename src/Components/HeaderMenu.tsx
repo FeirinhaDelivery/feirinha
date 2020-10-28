@@ -15,7 +15,7 @@ import '../Styles/components/menu.css';
 export default function HeaderMenu() {
     // const { goBack } = useHistory();
     return (
-        <Navbar bg="light" variant="light" fixed="top">
+        <Navbar bg="light" variant="light" fixed="top" className={'shadow-sm'}>
             <Container>
                 <Navbar.Brand href="/">
                     <img
@@ -27,12 +27,12 @@ export default function HeaderMenu() {
                 </Navbar.Brand>
                 <Nav className="ml-auto">
                     <Nav.Link>
-                        <Link to="/app" className="nav-link">
+                        <Link to="/" className="nav-link">
                             Home
                         </Link>
                     </Nav.Link>
                     <Nav.Link>
-                        <Link to="/" className="nav-link">
+                        <Link to="/produtos" className="nav-link">
                             Produtos
                         </Link>
                     </Nav.Link>
