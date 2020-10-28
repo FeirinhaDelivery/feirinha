@@ -33,6 +33,7 @@ body {
     color: rgba(0,0,0,.5);
 }
 .product_title{
+    font-size: 1.2rem;
     font-weight: bold;
     letter-spacing: .05rem;
     text-transform: uppercase;
@@ -48,4 +49,7 @@ body {
 }
 .shadow-sm {
     box-shadow: 0 0.125rem .50rem rgba(0,0,0,.2)!important;
+}
+.card-columns {
+    column-count: 5 !important;
 }

@@ -39,7 +39,7 @@ function Landing() {
 
                             {products.map(product => {
                                 return (
-                                    <Card style={{width: '18rem'}} key={product.id}>
+                                    <Card  key={product.id}>
                                         <Card.Img variant="top" src={product.thumbnailUrl}/>
                                         <Card.Body>
                                             <Card.Title className="product_title text-center">{product.name}</Card.Title>
