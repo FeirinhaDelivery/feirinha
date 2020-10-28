@@ -13,3 +13,36 @@ body {
 .menu-top{
     margin-top: 5rem;
 }
+.product {
+    display: flex;
+    justify-content: center;
+}
+.price_old{
+    color: red;
+    font-size: .9rem;
+    text-decoration: line-through;
+}
+.price {
+    font-weight: bold;
+    font-size: 1rem;
+    color: rgba(0,0,0,.8);
+}
+.price small {
+    font-weight: bold;
+    font-size: .65rem;
+    color: rgba(0,0,0,.5);
+}
+.product_title{
+    font-weight: bold;
+    letter-spacing: .05rem;
+    text-transform: uppercase;
+}
+.btn-outline-primary {
+    color: rgb(120, 142, 48);
+    border-color: rgb(176,200,97);
+}
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: rgb(120, 142, 48);
+    border-color: rgb(120, 142, 48);
+}
