@@ -51,5 +51,5 @@ body {
     box-shadow: 0 0.125rem .50rem rgba(0,0,0,.2)!important;
 }
 .card-columns {
-    column-count: 5 !important;
+    column-count: 4 !important;
 }

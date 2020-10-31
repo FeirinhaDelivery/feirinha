@@ -26,25 +26,17 @@ export default function HeaderMenu() {
                     />
                 </Navbar.Brand>
                 <Nav className="ml-auto">
-                    <Nav.Link>
-                        <Link to="/" className="nav-link">
+                    <Nav.Link href="/">
                             Home
-                        </Link>
                     </Nav.Link>
-                    <Nav.Link>
-                        <Link to="/produtos" className="nav-link">
+                    <Nav.Link href='/produtos'>
                             Produtos
-                        </Link>
                     </Nav.Link>
                     <Nav.Link>
-                        <Link to="/" className="nav-link">
                             Manifesto
-                        </Link>
                     </Nav.Link>
                     <Nav.Link>
-                        <Link to="/" className="nav-link">
                             Assinaturas
-                        </Link>
                     </Nav.Link>
                 </Nav>
                 <Form inline>
