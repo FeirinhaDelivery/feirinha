@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import HeaderMenu from "../Components/HeaderMenu";
 import Sidebar from "../Components/Sidebar";
-import {Container, Row, Col, Card, CardColumns, Badge} from "react-bootstrap";
+import {Container, Row, Col, Card, CardColumns, Pagination} from "react-bootstrap";
 import api from "../Services/api";
 
 // import '../styles/pages/landing.css';
@@ -19,13 +19,21 @@ interface Product {
     url: string;
 }
 
-function Landing() {
+function Products() {
     const [products, setProducts] = useState<Product[]>([]);
 
+    function loadItems(page: number) {
+        console.log(page)
+        let url = 'products?limit=8&offset=' + page + '&enabled=true&sortBy=NAME_ASC'
+        api.get(url)
+            .then(response => {
+                console.log(response.data.items.url)
+                setProducts(response.data.items);
+            });
+    }
+
     useEffect(() => {
-        api.get('https://feirinha-back.web.app/ecwid/listar/28820124?sortBy=DEFINED_BY_STORE_OWNER&category=51824438&limit=50').then(response => {
-            setProducts(response.data);
-        });
+        loadItems(10)
     }, []);
     return (
         <div id="page-landing">
@@ -33,30 +41,30 @@ function Landing() {
 
             <Container fluid className="menu-top pt-3">
                 <Row>
-                    <Col xs={2}><Sidebar /></Col>
+                    <Col xs={2}><Sidebar active={'n'}/></Col>
                     <Col xs={10}>
                         <CardColumns>
-
                             {products.map(product => {
                                 return (
-                                    <Card  key={product.id}>
+                                    <Card key={product.id}>
                                         <Card.Img variant="top" src={product.thumbnailUrl}/>
                                         <Card.Body>
-                                            <Card.Title className="product_title text-center">{product.name}</Card.Title>
+                                            <Card.Title
+                                                className="product_title text-center">{product.name}</Card.Title>
                                             <Card.Text className={'product'}>
                                                 {product.priceOld ?
-                                                    <div className={'price_old'}>
+                                                    <span className={'price_old'}>
                                                         {product.priceOld} <small className={'mr-3'}>Kg</small>
-                                                    </div>
+                                                    </span>
                                                     :
                                                     ''
                                                 }
-                                                <div className={'price'}>
-                                                {product.defaultDisplayedPriceFormatted} <small>Kg</small>
-                                                </div>
+                                                <span className={'price'}>
+                                                    {product.defaultDisplayedPriceFormatted} <small>Kg</small>
+                                                </span>
                                             </Card.Text>
                                             <div className="text-center">
-                                                <Link to="/" className="btn btn-outline-primary">
+                                                <Link to={"produto"+product.url.split("https://feirinha.delivery/#!")[1]} className="btn btn-outline-primary">
                                                     Adicionar
                                                 </Link>
                                             </div>
@@ -67,9 +75,14 @@ function Landing() {
                         </CardColumns>
                     </Col>
                 </Row>
+                <Row>
+                    <Col>
+                        <Pagination size="sm"></Pagination>
+                    </Col>
+                </Row>
             </Container>
         </div>
     );
 }
 
-export default Landing;
+export default Products;
