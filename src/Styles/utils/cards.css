@@ -1,0 +1,29 @@
+.card-columns {
+    column-count: 4 !important;
+}
+
+.price_old {
+    color: red;
+    font-size: .9rem;
+    text-decoration: line-through;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 1rem;
+    color: rgba(0, 0, 0, .8);
+}
+
+.price small {
+    font-weight: bold;
+    font-size: .65rem;
+    color: rgba(0, 0, 0, .5);
+}
+
+.product_title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: .05rem;
+    height: 46px;
+    text-transform: uppercase;
+}

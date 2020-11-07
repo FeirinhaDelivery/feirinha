@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {Link, useParams} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import HeaderMenu from "../Components/HeaderMenu";
 import Sidebar from "../Components/Sidebar";
-import {Container, Row, Col, Card, CardColumns, Pagination} from "react-bootstrap";
+import {Container, Row, Col, CardColumns} from "react-bootstrap";
 import api from "../Services/api";
+import CardsItens from "../Utils/CardsItens";
+import Pages from "../Components/Pages";
 
 // import '../styles/pages/landing.css';
 
@@ -22,63 +24,51 @@ interface Product {
 interface ProductParams {
     slug: string;
     id: string;
+    limit: string;
+    offset: string;
+    page: string;
+}
+
+interface ProParams {
+    total: string;
+    limit: string;
+    offset: string;
 }
 
 function ProductsCategory() {
     const params = useParams<ProductParams>();
     const [products, setProducts] = useState<Product[]>([]);
+    const [proParams, setProParams] = useState<ProParams>();
+
 
     useEffect(() => {
         // &offset=0
-        api.get(`products?category=${params.id}&limit=8&enabled=true&sortBy=NAME_ASC`)
+        api.get(`products?category=${params.id}&limit=${params.limit}&offset=${params.offset}&enabled=true&sortBy=NAME_ASC`)
             .then(response => {
-                console.log(response.data.items)
                 setProducts(response.data.items);
+                setProParams(response.data);
             });
-    }, [params.id]);
+    }, [params.id, params.limit, params.offset]);
     return (
         <div id="page-landing">
             <HeaderMenu/>
 
-            <Container fluid className="menu-top pt-3">
+          <Container fluid className="menu-top pt-3">
                 <Row>
                     <Col xs={2}><Sidebar active={params.id}/></Col>
                     <Col xs={10}>
                         <CardColumns>
                             {products.map(product => {
                                 return (
-                                    <Card key={product.id}>
-                                        <Card.Img variant="top" src={product.thumbnailUrl}/>
-                                        <Card.Body>
-                                            <Card.Title
-                                                className="product_title text-center">{product.name}</Card.Title>
-                                            <Card.Text className={'product'}>
-                                                {product.priceOld ?
-                                                    <span className={'price_old'}>
-                                                        {product.priceOld} <small className={'mr-3'}>Kg</small>
-                                                    </span>
-                                                    :
-                                                    ''
-                                                }
-                                                <span className={'price'}>
-                                                    {product.defaultDisplayedPriceFormatted} <small>Kg</small>
-                                                </span>
-                                            </Card.Text>
-                                            <div className="text-center">
-                                                <Link to={"produto"+product.url.split("https://feirinha.delivery/#!")[1]} className="btn btn-outline-primary">
-                                                    Adicionar
-                                                </Link>
-                                            </div>
-                                        </Card.Body>
-                                    </Card>
+                                    <CardsItens key={product.id} id={product.id} thumbnailUrl={product.thumbnailUrl} name={product.name} priceOld={product.priceOld} defaultDisplayedPriceFormatted={product.defaultDisplayedPriceFormatted} />
                                 )
                             })}
                         </CardColumns>
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
-                        <Pagination size="sm"></Pagination>
+                    <Col xs={{ span: 10, offset: 2 }} className={'d-flex justify-content-center'}>
+                        <Pages total={proParams || {}} page={params.page}/>
                     </Col>
                 </Row>
             </Container>
