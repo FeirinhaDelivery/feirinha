@@ -1,0 +1,66 @@
+.Navbar{
+    width: 50px;
+    position: fixed;
+    z-index: 10;
+}
+.Navbar img{
+    padding: 5px;
+    padding-left: 20px;
+}
+nav{
+    width: 100vw;
+    height: 70px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    margin-top: -70px;
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, .16);
+    padding-right: 20px;
+    
+}
+nav ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    font-weight: 300;
+}
+nav li{
+    margin: 10%;
+}
+nav a{
+    color: black;
+    text-align: center;
+    margin: 15px;
+    
+    transition: font-weight 0.2s;
+}
+
+nav a:hover{
+    font-weight: 400;
+}
+form{
+    display: flex;
+}
+nav input{
+    height: 30px;
+    border: solid rgba(0, 0, 0, .16) 1px;
+    border-radius: 50px;
+    outline: none;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    width: 200px;
+    
+}   
+nav #btn{
+    height: 30px;
+    width: 30px;
+    z-index: 10;
+    position: relative;
+    border-style: none;
+    background-color: white;
+    padding: 5px;
+}
