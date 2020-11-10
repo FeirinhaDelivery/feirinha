@@ -5,7 +5,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Styles/global.css';
 
 function App() {
-  return <Routes />;
+    return (
+        <div id="page-landing">
+            <Routes/>
+        </div>
+    );
 }
 
 export default App;

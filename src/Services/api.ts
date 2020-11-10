@@ -7,7 +7,7 @@ const api = axios.create({
         Accept: 'application/json',
     },
     params: {
-        token: 'public_XkKYF7H7cqsZ5Jd3c5AF9WNVc5fUceeG'
+        token: 'public_U8xi9fM3mEzGzY3Nh9YJduEDXPn9PVbs'
     },
 })
 

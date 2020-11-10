@@ -1,0 +1,30 @@
+footer {
+    bottom: 0;
+    position: fixed;
+    background-color: #b0c862;
+    width: 100vw;
+    padding-top: 1.2em;
+}
+
+footer .bg-footer {
+    width: 100vw;
+    background-color: white;
+    padding: 2em 0;
+}
+
+footer .copy {
+    text-align: center;
+    padding: .6em 0;
+}
+
+footer a{
+    color: #393c30;
+    font-size: .9em;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+footer a:hover{
+    color: #272820;
+}
+
