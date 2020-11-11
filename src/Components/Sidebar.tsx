@@ -12,7 +12,7 @@ interface Category {
     url: string;
 }
 
-function Sidebar(prop: { active: string }) {
+function Sidebar(prop: { active: string | boolean, horizontal: boolean }) {
     const [categories, setCategories] = useState<Category[]>([]);
 
     function activeControl(id: string) {
@@ -26,11 +26,11 @@ function Sidebar(prop: { active: string }) {
         });
     }, []);
     return (
-        <ListGroup variant="flush" className={'sidebar'}>
+        <ListGroup variant="flush" className={ 'sidebar'} horizontal={prop.horizontal}>
             {categories.map(category => {
                 return (
                     <Link to={"/produtos"+category.url.split("https://feirinha.delivery/#!")[1]+'/8/0/0'} key={category.id}>
-                        <ListGroup.Item className={activeControl(category.id) }>
+                        <ListGroup.Item className={(prop.horizontal === true ) ? category.name : '' + activeControl(category.id) }>
                             <img src={category.imageUrl} alt=""/>
                             {category.name}
                         </ListGroup.Item>

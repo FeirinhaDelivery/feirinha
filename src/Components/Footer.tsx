@@ -13,7 +13,7 @@ import '../Styles/components/footer.css';
 
 export default function HeaderMenu() {
     return (
-        <footer>
+        <footer className={"mt-4"}>
             <div className="bg-footer">
                 <Container>
                     <Row>

@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-import HeaderMenu from "../Components/HeaderMenu";
 import Sidebar from "../Components/Sidebar";
 import {Container, Row, Col, Card, CardColumns, Pagination} from "react-bootstrap";
 import api from "../Services/api";
@@ -37,7 +36,7 @@ function Products() {
     return (
         <Container fluid className="menu-top pt-3">
             <Row>
-                <Col xs={2}><Sidebar active={'n'}/></Col>
+                <Col xs={2}><Sidebar active={false} horizontal={false}/></Col>
                 <Col xs={10}>
                     <CardColumns>
                         {products.map(product => {

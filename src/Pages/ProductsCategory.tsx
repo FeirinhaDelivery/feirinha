@@ -48,7 +48,7 @@ function ProductsCategory() {
     return (
         <Container fluid className="menu-top pt-3">
             <Row>
-                <Col xs={2}><Sidebar active={params.id}/></Col>
+                <Col xs={2}><Sidebar active={params.id} horizontal={false}/></Col>
                 <Col xs={10}>
                     <CardColumns>
                         {(Object.entries(products).length > 0) ?

@@ -16,7 +16,7 @@ function Routes() {
                 <Route path="/produtos/:slug/c/:id/:limit?/:offset?/:page?" component={ProductsCategory} />
                 <Route path="/produtos" component={Products} />
             </Switch>
-            {/*<Footer/>*/}
+            <Footer/>
         </BrowserRouter>
     )
 }

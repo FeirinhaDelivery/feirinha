@@ -1,13 +1,13 @@
 footer {
     bottom: 0;
-    position: fixed;
+    position: relative;
     background-color: #b0c862;
-    width: 100vw;
+    width: 100%;
     padding-top: 1.2em;
 }
 
 footer .bg-footer {
-    width: 100vw;
+    width: 100%;
     background-color: white;
     padding: 2em 0;
 }
