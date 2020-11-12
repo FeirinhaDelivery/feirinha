@@ -1,123 +1,68 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import '../Styles/components/slider.css';
 import { Link } from 'react-router-dom';
 import { AiOutlineDoubleRight } from 'react-icons/ai';
+import api from "../Services/api";
+import {CardDeck} from "react-bootstrap";
+import CardsItens from "../Utils/CardsItens";
 
 // import saladImg from '../../images/unnamed.svg';
 
 interface SliderProps{
     tittle: string,
-    img: string,
+    offer: boolean,
+    category: number,
+    stylePessoal: string,
+}
+
+interface Product {
+    id: number;
+    name: string;
+    percentDiscount: number;
+    defaultDisplayedPriceFormatted: number;
+    priceOld: number;
+    thumbnailUrl: string;
+    url: string;
 }
 
 function Slider(props: SliderProps) {
-
-    const linkStyle = {fontSize: 18, color: "black", fontFamily: "Nunito", fontWeight: 400 }
-    const lineThrough = { textDecoration: "line-through"}
+    const [products, setProducts] = useState<Product[]>([]);
+    const [isLoading, setLoading] = useState(true);
+    let url = null;
     const background01 = { backgroundColor: "#59A8B2"}
 
+    useEffect(() => {
+        if (props.category > 0) {
+            url = `products?category=${props.category}&enabled=true&limit=5&offset=0&sortBy=NAME_ASC`
+        } else {
+            url = `products?onsale=onsale&enabled=true&limit=5&offset=0&sortBy=NAME_ASC`
+        }
+        console.log(url);
+        api.get(url)
+            .then(response => {
+                setProducts(response.data.items);
+                setLoading(false);
+            });
+    }, [isLoading]);
     return (
         <div className="products">
-            <div className="tittle">
+            <div className={"tittle " + props.stylePessoal}>
                 <h2>{props.tittle}</h2>
             </div>
 
             <div className="slider">
-                <div className="item">
-                    <div className="background" style={background01}>
-                        <img src={props.img}/>
-                    </div>
 
-                    <div className="caption">
-                        <div className="caption-tittle">
-                            <Link to="#alface" style={linkStyle}>Alface crespa (unid)</Link>
-                        </div>
+                <CardDeck>
+                    {(Object.entries(products).length > 0) ?
+                        products.map(product => {
+                            return (
+                                <CardsItens key={product.id} id={product.id} thumbnailUrl={product.thumbnailUrl}
+                                            name={product.name} priceOld={product.priceOld}
+                                            defaultDisplayedPriceFormatted={product.defaultDisplayedPriceFormatted}/>
+                            )
+                        }) : ''}
+                </CardDeck>
 
-                        <div className="price">
-                            <div className="discount">
-                                <h2>R$ 3,10</h2>
-                            </div>
-
-                            <div className="original-price">
-                                <h2 style={ lineThrough }>R$ 4,10</h2>
-                            </div>
-                        </div>
-
-                        <button>Adicionar</button>
-                    </div>
-                </div>
-
-                <div className="item">
-                    <div className="background" style={background01}>
-                        <img src={props.img}/>
-                    </div>
-
-                    <div className="caption">
-                        <div className="caption-tittle">
-                            <Link to="#alface" style={linkStyle}>Alface crespa (unid)</Link>
-                        </div>
-
-                        <div className="price">
-                            <div className="discount">
-                                <h2>R$ 3,10</h2>
-                            </div>
-
-                            <div className="original-price">
-                                <h2 style={ lineThrough }>R$ 4,10</h2>
-                            </div>
-                        </div>
-
-                        <button>Adicionar</button>
-                    </div>
-                </div>
-
-                <div className="item">
-                    <div className="background" style={background01}>
-                        <img src={props.img}/>
-                    </div>
-
-                    <div className="caption">
-                        <div className="caption-tittle">
-                            <Link to="#alface" style={linkStyle}>Alface crespa (unid)</Link>
-                        </div>
-
-                        <div className="price">
-                            <div className="discount">
-                                <h2>R$ 3,10</h2>
-                            </div>
-
-                            <div className="original-price">
-                                <h2 style={ lineThrough }>R$ 4,10</h2>
-                            </div>
-                        </div>
-
-                        <button>Adicionar</button>
-                    </div>
-                </div>
-
-                <div className="item">
-                    <div className="background" style={background01}>
-                        <img src={props.img}/>
-                    </div>
-
-                    <div className="caption">
-                        <div className="caption-tittle">
-                            <Link to="#alface" style={linkStyle}>Alface crespa (unid)</Link>
-                        </div>
-
-                        <div className="price">
-                            <div className="discount">
-                                <h2>R$ 3,10</h2>
-                            </div>
-
-                            <div className="original-price">
-                                <h2 style={ lineThrough }>R$ 4,10</h2>
-                            </div>
-                        </div>
-
-                        <button>Adicionar</button>
-                    </div>
-                </div>
 
 
                 <div className="more" style={background01}>

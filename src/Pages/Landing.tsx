@@ -3,50 +3,17 @@ import Slider from '../Components/Slider';
 import Banner from '../Components/Banner';
 import Sidebar from '../Components/Sidebar';
 
-import saladImg from '../Images/unnamed.svg';
-import tomateImg from '../Images/tomate-pizzadoro.svg';
-
 function Landing() {
     return (
         <div className="landing-page">
             <Banner/>
             <Sidebar active={false} horizontal={true}/>
 
-            {/*<div className="categories">*/}
-
-            {/*    <button className="ofertas">*/}
-            {/*        <img src={ofertasImg} alt="Ofertas"/>*/}
-            {/*        <span className="text">Ofertas</span>*/}
-            {/*    </button>*/}
-
-            {/*    <button className="combos">*/}
-            {/*        <img src={combosImg} alt="Combos"/>*/}
-            {/*        <span className="text">Combos</span>*/}
-            {/*    </button>*/}
-
-            {/*    <button className="frutas">*/}
-            {/*        <img src={frutasImg} alt="Frutas"/>*/}
-            {/*        <span className="text">Frutas</span>*/}
-            {/*    </button>*/}
-
-            {/*    <button className="legumes">*/}
-            {/*        <img src={legumesImg} alt="Legumes"/>*/}
-            {/*        <span className="text">Legumes</span>*/}
-            {/*    </button>*/}
-
-            {/*    <button className="verduras">*/}
-            {/*        <img src={verdurasImg} alt="Verduras"/>*/}
-            {/*        <span className="text">Verduras</span>*/}
-            {/*    </button>*/}
-
-            {/*    <button className="diversos">*/}
-            {/*        <img src={diversosImg} alt="Diversos"/>*/}
-            {/*        <span className="text">Diversos</span>*/}
-            {/*    </button>*/}
-            {/*</div>*/}
-
-            <Slider tittle="Ofertas de hoje" img={saladImg}/>
-            <Slider tittle="Verduras" img={tomateImg}/>
+            <Slider tittle="Ofertas de hoje" offer={true} category={0} stylePessoal={"Ofertas"}/>
+            <Slider tittle="Verduras" offer={false} category={51827393} stylePessoal={"Verduras"}/>
+            <Slider tittle="Frutas" offer={false} category={51814491} stylePessoal={"Frutas"}/>
+            <Slider tittle="Legumes" offer={false} category={51824438} stylePessoal={"Legumes"}/>
+            <Slider tittle="Diversos" offer={false} category={51814492} stylePessoal={"Diversos"}/>
         </div>
     );
 }

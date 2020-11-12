@@ -32,6 +32,24 @@
     left: 0;
     background-color: #59A8B2;
 }
+.products .Ofertas h2::after{
+    background-color: #91d5e2;
+}
+.products .Combos h2::after{
+    background-color: #db7d8f;
+}
+.products .Frutas h2::after{
+    background-color: #e5e15a;
+}
+.products .Legumes h2::after{
+    background-color: #e5b045;
+}
+.products .Verduras h2::after{
+    background-color: #b0c862;
+}
+.products .Diversos h2::after{
+    background-color: #d8bb8d;
+}
 
 .products .slider{
     max-width: 1300px;
