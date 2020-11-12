@@ -58,7 +58,7 @@
 
 .list-group-horizontal .Ofertas{
     border: 1px solid #cbcbcb !important;
-    border-left: 10px solid #91d5e2;
+    border-left: 10px solid #91d5e2 !important;
 }
 .list-group-horizontal .Combos{
     border: 1px solid #cbcbcb !important;
