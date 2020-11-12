@@ -71,8 +71,8 @@ Dudante as atividades em salas estão sendo feito o levantamento das tarefas.
 
 Time responsável pelo desenvolvimento do projeto
 
-|  [<img src="https://avatars3.githubusercontent.com/u/69330807?s=400&u=34ea7217e3b2eb855c113abd8c154a60481eac73&v=4" width=115><br><sub>Eduardo Azevedo</sub>](https://github.com/TheRealLactose) |  [<img src="https://avatars3.githubusercontent.com/u/50601798?s=400&u=fbbd6e782c5ab3ac8198acac540b7f67d62fd390&v=4" width=115><br><sub>Lara Sayuri</sub>](https://github.com/larasayuri) | [<img src="https://avatars2.githubusercontent.com/u/13022858?s=400&u=071f7791bb03f8e102d835bdb9c2f0d3d24e8a34&v=4" width=115><br><sub>Leandro Henriques</sub>](https://github.com/lehenriques) |  [<img src="https://avatars2.githubusercontent.com/u/73200568?s=400&u=bcfd0196d45d2c8ecc44129f0905f4e2d78a10cf&v=4" width=115><br><sub>Feirinha Delivery</sub>](https://github.com/FeirinhaDelivery) | 
-| :---: | :---: | :---: | :---:
+|  [<img src="https://avatars3.githubusercontent.com/u/50601798?s=400&u=fbbd6e782c5ab3ac8198acac540b7f67d62fd390&v=4" width=115><br><sub>Lara Sayuri</sub>](https://github.com/larasayuri) | [<img src="https://avatars2.githubusercontent.com/u/13022858?s=400&u=071f7791bb03f8e102d835bdb9c2f0d3d24e8a34&v=4" width=115><br><sub>Leandro Henriques</sub>](https://github.com/lehenriques) |  [<img src="https://avatars3.githubusercontent.com/u/71796171?s=400&v=4" width=115><br><sub>Rhyan Felipe</sub>](https://github.com/rhyanfelipepw) | 
+| :---: | :---: | :---:
 
 ## Licença 
 
