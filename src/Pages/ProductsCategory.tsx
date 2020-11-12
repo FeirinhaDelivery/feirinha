@@ -48,8 +48,8 @@ function ProductsCategory() {
     return (
         <Container fluid className="menu-top pt-3">
             <Row>
-                <Col xs={2}><Sidebar active={params.id} horizontal={false}/></Col>
-                <Col xs={10}>
+                <Col xs={12} md={2}><Sidebar active={params.id} horizontal={false}/></Col>
+                <Col xs={12} md={10}>
                     <CardColumns>
                         {(Object.entries(products).length > 0) ?
                             products.map(product => {
@@ -58,13 +58,14 @@ function ProductsCategory() {
                                                 name={product.name} priceOld={product.priceOld}
                                                 defaultDisplayedPriceFormatted={product.defaultDisplayedPriceFormatted}/>
                                 )
-                            }) : ''}
+                        }) : ''}
                     </CardColumns>
                     {(Object.entries(products).length < 1) ?
-                        <Alert variant="secondary">
+                        <Alert variant="secondary" style={{ width: '32rem' }}>
                             <p>Desculpe, no momento esta categoria ainda não tem
                             produtos!</p>
-                        </Alert> : ''}
+                        </Alert>
+                    : ''}
                 </Col>
             </Row>
             <Row>

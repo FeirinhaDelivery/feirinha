@@ -12,7 +12,7 @@ interface CardProps {
 
 const CardsItens: FunctionComponent<CardProps> = (props) => {
     return (
-            <Card key={props.id}>
+            <Card key={props.id} >
                 <Card.Img variant="top" src={props.thumbnailUrl}/>
                 <Card.Body>
                     <Card.Title

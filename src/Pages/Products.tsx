@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
 import Sidebar from "../Components/Sidebar";
-import {Container, Row, Col, Card, CardColumns, Pagination} from "react-bootstrap";
+import {Container, Row, Col, CardColumns, Pagination} from "react-bootstrap";
 import api from "../Services/api";
+import CardsItens from "../Utils/CardsItens";
 
 // import '../styles/pages/landing.css';
 
@@ -23,7 +23,7 @@ function Products() {
 
     function loadItems(page: number) {
         console.log(page)
-        let url = 'products?limit=8&offset=' + page + '&enabled=true&sortBy=NAME_ASC'
+        let url = 'products?limit=10&offset=' + page + '&enabled=true&sortBy=NAME_ASC'
         api.get(url)
             .then(response => {
                 setProducts(response.data.items);
@@ -36,36 +36,15 @@ function Products() {
     return (
         <Container fluid className="menu-top pt-3">
             <Row>
-                <Col xs={2}><Sidebar active={false} horizontal={false}/></Col>
-                <Col xs={10}>
+                <Col xs={12} md={2}><Sidebar active={false} horizontal={false}/></Col>
+                <Col xs={12} md={10}>
                     <CardColumns>
                         {products.map(product => {
                             return (
-                                <Card key={product.id}>
-                                    <Card.Img variant="top" src={product.thumbnailUrl}/>
-                                    <Card.Body>
-                                        <Card.Title
-                                            className="product_title text-center">{product.name}</Card.Title>
-                                        <Card.Text className={'product'}>
-                                            {product.priceOld ?
-                                                <span className={'price_old'}>
-                                                        {product.priceOld} <small className={'mr-3'}>Kg</small>
-                                                    </span>
-                                                :
-                                                ''
-                                            }
-                                            <span className={'price'}>
-                                                    {product.defaultDisplayedPriceFormatted} <small>Kg</small>
-                                                </span>
-                                        </Card.Text>
-                                        <div className="text-center">
-                                            <Link to={"produto" + product.url.split("https://feirinha.delivery/#!")[1]}
-                                                  className="btn btn-outline-primary">
-                                                Adicionar
-                                            </Link>
-                                        </div>
-                                    </Card.Body>
-                                </Card>
+                                <CardsItens key={product.id} id={product.id} thumbnailUrl={product.thumbnailUrl}
+                                            name={product.name} priceOld={product.priceOld}
+                                            defaultDisplayedPriceFormatted={product.defaultDisplayedPriceFormatted}/>
+
                             )
                         })}
                     </CardColumns>
