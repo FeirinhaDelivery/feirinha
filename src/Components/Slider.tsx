@@ -1,18 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import '../Styles/components/slider.css';
-import { Link } from 'react-router-dom';
-import { AiOutlineDoubleRight } from 'react-icons/ai';
+import {Link} from 'react-router-dom';
+import {AiOutlineDoubleRight} from 'react-icons/ai';
 import api from "../Services/api";
-import {CardDeck} from "react-bootstrap";
+import {CardDeck, Container, Row, Col, Card} from "react-bootstrap";
 import CardsItens from "../Utils/CardsItens";
 
 // import saladImg from '../../images/unnamed.svg';
 
-interface SliderProps{
+interface SliderProps {
     tittle: string,
     offer: boolean,
     category: number,
     stylePessoal: string,
+    urlCategory: string,
 }
 
 interface Product {
@@ -29,13 +30,13 @@ function Slider(props: SliderProps) {
     const [products, setProducts] = useState<Product[]>([]);
     const [isLoading, setLoading] = useState(true);
     let url = null;
-    const background01 = { backgroundColor: "#59A8B2"}
+    const background01 = {backgroundColor: "#59A8B2"}
 
     useEffect(() => {
         if (props.category > 0) {
-            url = `products?category=${props.category}&enabled=true&limit=5&offset=0&sortBy=NAME_ASC`
+            url = `products?category=${props.category}&enabled=true&limit=5&offset=0&sortBy=RELEVANCE`
         } else {
-            url = `products?onsale=onsale&enabled=true&limit=5&offset=0&sortBy=NAME_ASC`
+            url = `products?onsale=onsale&enabled=true&limit=5&offset=0&sortBy=RELEVANCE`
         }
         console.log(url);
         api.get(url)
@@ -45,35 +46,32 @@ function Slider(props: SliderProps) {
             });
     }, [isLoading]);
     return (
-        <div className="products">
-            <div className={"tittle " + props.stylePessoal}>
-                <h2>{props.tittle}</h2>
-            </div>
-
-            <div className="slider">
-
-                <CardDeck>
-                    {(Object.entries(products).length > 0) ?
-                        products.map(product => {
-                            return (
-                                <CardsItens key={product.id} id={product.id} thumbnailUrl={product.thumbnailUrl}
-                                            name={product.name} priceOld={product.priceOld}
-                                            defaultDisplayedPriceFormatted={product.defaultDisplayedPriceFormatted}/>
-                            )
-                        }) : ''}
-                </CardDeck>
-
-
-
-                <div className="more" style={background01}>
-                    <Link to="#products">
-                        <h3>Ver mais produtos</h3>
-                        <AiOutlineDoubleRight />
-
-                    </Link>
-                </div>
-            </div>
-        </div>
+        <Container fluid className="menu-top pt-3">
+            <Row>
+                <Col xs={10} className={"mx-auto tittle mb-3 " + props.stylePessoal}>
+                    <h2>{props.tittle}</h2>
+                </Col>
+                <Col xs={10} className={"mx-auto"}>
+                    <CardDeck>
+                        {(Object.entries(products).length > 0) ?
+                            products.map(product => {
+                                return (
+                                    <CardsItens key={product.id} id={product.id} thumbnailUrl={product.thumbnailUrl}
+                                                name={product.name} priceOld={product.priceOld}
+                                                defaultDisplayedPriceFormatted={product.defaultDisplayedPriceFormatted}/>
+                                )
+                            }) : ''}
+                        <Card>
+                            <div className={"card-img-top btn-mais-produtos " + props.stylePessoal + '-produtos '}>
+                                <Link to={props.urlCategory}>
+                                    Ver mais produtos <AiOutlineDoubleRight/>
+                                </Link>
+                            </div>
+                        </Card>
+                    </CardDeck>
+                </Col>
+            </Row>
+        </Container>
     );
 }
 

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Sidebar from "../Components/Sidebar";
-import {Container, Row, Col, CardColumns, Pagination} from "react-bootstrap";
+import {Container, Row, Col, CardColumns, Pagination, CardGroup} from "react-bootstrap";
 import api from "../Services/api";
 import CardsItens from "../Utils/CardsItens";
 
@@ -38,7 +38,7 @@ function Products() {
             <Row>
                 <Col xs={12} md={2}><Sidebar active={false} horizontal={false}/></Col>
                 <Col xs={12} md={10}>
-                    <CardColumns>
+                    <CardGroup>
                         {products.map(product => {
                             return (
                                 <CardsItens key={product.id} id={product.id} thumbnailUrl={product.thumbnailUrl}
@@ -47,7 +47,7 @@ function Products() {
 
                             )
                         })}
-                    </CardColumns>
+                    </CardGroup>
                 </Col>
             </Row>
             <Row>

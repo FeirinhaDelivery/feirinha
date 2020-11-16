@@ -34,9 +34,83 @@
     letter-spacing: .05rem;
     height: 46px;
     text-transform: uppercase;
+    overflow: hidden;
 }
 .card-deck .card {
-    height: 25vw;
+    height: 16vw;
+}
+
+.tittle h2::after {
+    width: 130px;
+    height: 3px;
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    background-color: #59A8B2;
+}
+
+.Ofertas h2::after {
+    background-color: #91d5e2;
+}
+
+.Combos h2::after {
+    background-color: #db7d8f;
+}
+
+.Frutas h2::after {
+    background-color: #e5e15a;
+}
+
+.Legumes h2::after {
+    background-color: #e5b045;
+}
+
+.Verduras h2::after {
+    background-color: #b0c862;
+}
+
+.Diversos h2::after {
+    background-color: #d8bb8d;
+}
+
+.btn-mais-produtos{
+    height: 76%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-mais-produtos a{
+    color: #000000;
+}
+
+.btn-mais-produtos a:hover{
+    color: #000000;
+}
+
+.Ofertas-produtos {
+    background-color: #91d5e2;
+}
+
+.Combos-produtos {
+    background-color: #db7d8f;
+}
+
+.Frutas-produtos {
+    background-color: #e5e15a;
+}
+
+.Legumes-produtos {
+    background-color: #e5b045;
+}
+
+.Verduras-produtos {
+    background-color: #b0c862;
+}
+
+.Diversos-produtos {
+    background-color: #d8bb8d;
 }
 
 @media screen and (max-width: 576px) {
@@ -45,6 +119,9 @@
     }
     .card-columns {
         column-count: 2 !important;
+    }
+    .card-deck {
+        column-count: 1 !important;
     }
 }
 
@@ -80,5 +157,6 @@
     .card-columns {
         column-count: 3 !important;
     }
+
 
 }
