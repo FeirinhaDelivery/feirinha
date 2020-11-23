@@ -4,6 +4,7 @@ import '../Styles/utils/cards.css';
 
 interface CardProps {
     id: number;
+    key: number
     thumbnailUrl: string;
     name: string;
     priceOld: number;
@@ -12,7 +13,7 @@ interface CardProps {
 
 const CardsItens: FunctionComponent<CardProps> = (props) => {
     return (
-            <Card key={props.id} >
+            <Card key={props.id}>
                 <Card.Img variant="top" src={props.thumbnailUrl}/>
                 <Card.Body>
                     <Card.Title
