@@ -38,6 +38,7 @@
 .list-group-horizontal {
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .list-group-horizontal img {
@@ -54,29 +55,52 @@
     background-color: #fff;
     border: 0;
     width: 12vw;
+    min-width: 160px;
+    /*min-width: 143px;*/
 }
 
-.list-group-horizontal .Ofertas{
+.list-group-horizontal .Ofertas {
     border: 1px solid #cbcbcb !important;
     border-left: 10px solid #91d5e2 !important;
 }
-.list-group-horizontal .Combos{
+
+.list-group-horizontal .Combos {
     border: 1px solid #cbcbcb !important;
     border-left: 10px solid #db7d8f !important;
 }
-.list-group-horizontal .Frutas{
+
+.list-group-horizontal .Frutas {
     border: 1px solid #cbcbcb !important;
     border-left: 10px solid #e5e15a !important;
 }
-.list-group-horizontal .Legumes{
+
+.list-group-horizontal .Legumes {
     border: 1px solid #cbcbcb !important;
     border-left: 10px solid #e5b045 !important;
 }
-.list-group-horizontal .Verduras{
+
+.list-group-horizontal .Verduras {
     border: 1px solid #cbcbcb !important;
     border-left: 10px solid #b0c862 !important;
 }
-.list-group-horizontal .Diversos{
+
+.list-group-horizontal .Diversos {
     border: 1px solid #cbcbcb !important;
     border-left: 10px solid #d8bb8d !important;
+}
+
+@media screen and (max-width: 1200px) {
+    .list-group-horizontal .list-group-item {
+        margin: 1.3em .3rem 0 .3rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .list-group-horizontal .list-group-item {
+        min-width: 138px;
+    }
+    .list-group-horizontal img {
+        width: 30px;
+        margin-right: 0.5rem;
+    }
 }

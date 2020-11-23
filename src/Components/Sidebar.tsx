@@ -27,7 +27,7 @@ function Sidebar(prop: { active: string | boolean, horizontal: boolean }) {
         });
     }, []);
     return (
-        <ListGroup variant="flush" className={ 'sidebar'} horizontal={prop.horizontal}>
+        <ListGroup className={ 'sidebar'} horizontal={prop.horizontal}>
             {(prop.horizontal === true) ? <Link to={"/produtos/Ofertas/10/0/0"}><ListGroup.Item className={"Ofertas"}><img src={icoOffsale} alt=""/>Ofertas</ListGroup.Item></Link> : ''}
             {categories.map(category => {
                 return (

@@ -30,15 +30,13 @@ function Slider(props: SliderProps) {
     const [products, setProducts] = useState<Product[]>([]);
     const [isLoading, setLoading] = useState(true);
     let url = null;
-    const background01 = {backgroundColor: "#59A8B2"}
 
     useEffect(() => {
         if (props.category > 0) {
-            url = `products?category=${props.category}&enabled=true&limit=5&offset=0&sortBy=RELEVANCE`
+            url = `products?category=${props.category}&enabled=true&limit=5&sortBy=RELEVANCE`
         } else {
-            url = `products?onsale=onsale&enabled=true&limit=5&offset=0&sortBy=RELEVANCE`
+            url = `products?onsale=onsale&enabled=true&limit=5&sortBy=RELEVANCE`
         }
-        console.log(url);
         api.get(url)
             .then(response => {
                 setProducts(response.data.items);
@@ -46,14 +44,15 @@ function Slider(props: SliderProps) {
             });
     }, [isLoading]);
     return (
-        <Container fluid className="menu-top pt-3">
+        <Container fluid className="mt-4">
             <Row>
-                <Col xs={10} className={"mx-auto tittle mb-3 " + props.stylePessoal}>
+                <Col xs={12} md={10} className={"mx-auto tittle mb-3 " + props.stylePessoal}>
                     <h2>{props.tittle}</h2>
                 </Col>
-                <Col xs={10} className={"mx-auto"}>
+                <Col xs={12} md={10} className={"mx-auto"}>
                     <CardDeck>
                         {(Object.entries(products).length > 0) ?
+
                             products.map(product => {
                                 return (
                                     <CardsItens key={product.id} id={product.id} thumbnailUrl={product.thumbnailUrl}
