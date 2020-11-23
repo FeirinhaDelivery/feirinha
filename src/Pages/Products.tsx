@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Sidebar from "../Components/Sidebar";
-import {Container, Row, Col, CardColumns, Pagination, CardGroup} from "react-bootstrap";
+import {Container, Row, Col, CardColumns, Pagination} from "react-bootstrap";
 import api from "../Services/api";
 import CardsItens from "../Utils/CardsItens";
 
@@ -22,7 +22,6 @@ function Products() {
     const [products, setProducts] = useState<Product[]>([]);
 
     function loadItems(page: number) {
-        console.log(page)
         let url = 'products?limit=10&offset=' + page + '&enabled=true&sortBy=NAME_ASC'
         api.get(url)
             .then(response => {
@@ -38,7 +37,7 @@ function Products() {
             <Row>
                 <Col xs={12} md={2}><Sidebar active={false} horizontal={false}/></Col>
                 <Col xs={12} md={10}>
-                    <CardGroup>
+                    <CardColumns>
                         {products.map(product => {
                             return (
                                 <CardsItens key={product.id} id={product.id} thumbnailUrl={product.thumbnailUrl}
@@ -47,7 +46,7 @@ function Products() {
 
                             )
                         })}
-                    </CardGroup>
+                    </CardColumns>
                 </Col>
             </Row>
             <Row>
