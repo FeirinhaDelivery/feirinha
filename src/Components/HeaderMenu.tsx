@@ -15,7 +15,7 @@ import '../Styles/components/menu.css';
 export default function HeaderMenu() {
     // const { goBack } = useHistory();
     return (
-        <Navbar bg="light" variant="light" fixed="top" className={'shadow-sm'}>
+        <Navbar bg="light" variant="light" fixed="top" className={'shadow-sm'}  expand="lg">
             <Container>
                 <Navbar.Brand href="/">
                     <img
@@ -25,39 +25,43 @@ export default function HeaderMenu() {
                         alt="Feirinha"
                     />
                 </Navbar.Brand>
-                <Nav className="ml-auto">
-                    <Nav.Link href="/">
+                <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="ml-auto">
+                        <Nav.Link href="/">
                             Home
-                    </Nav.Link>
-                    <Nav.Link href='/produtos'>
+                        </Nav.Link>
+                        <Nav.Link href='/produtos'>
                             Produtos
-                    </Nav.Link>
-                    <Nav.Link>
+                        </Nav.Link>
+                        <Nav.Link>
                             Manifesto
-                    </Nav.Link>
-                    <Nav.Link>
+                        </Nav.Link>
+                        <Nav.Link>
                             Assinaturas
-                    </Nav.Link>
-                </Nav>
-                <Form inline>
-                    <FormControl
-                        placeholder="O que você procura?"
-                        aria-label="O que você procura?"
-                        aria-describedby="basic-addon2"
-                    />
-                    <InputGroup.Append>
-                        <Button variant="outline-secondary"> <FaSearch size={26}/></Button>
-                    </InputGroup.Append>
-                </Form>
-                <Link to="/" className="nav-icon">
-                    <FaUser size={26} color="rgba(0, 0, 0, 1)"/>
-                </Link>
-                <Link to="/" className="nav-icon">
-                    <FaShoppingBag size={26} color="rgba(0, 0, 0, 1)"/>
-                    <Badge pill variant="success">
-                        1
-                    </Badge>{' '}
-                </Link>
+                        </Nav.Link>
+                    </Nav>
+
+                    <Form inline>
+                        <FormControl
+                            placeholder="O que você procura?"
+                            aria-label="O que você procura?"
+                            aria-describedby="basic-addon2"
+                        />
+                        <InputGroup.Append>
+                            <Button variant="outline-secondary"> <FaSearch size={26}/></Button>
+                        </InputGroup.Append>
+                    </Form>
+                    <Link to="/" className="nav-icon">
+                        <FaUser size={26} color="rgba(0, 0, 0, 1)"/>
+                    </Link>
+                    <Link to="/" className="nav-icon">
+                        <FaShoppingBag size={26} color="rgba(0, 0, 0, 1)"/>
+                        <Badge pill variant="success">
+                            1
+                        </Badge>{' '}
+                    </Link>
+                </Navbar.Collapse>
             </Container>
         </Navbar>
     );
